@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<body>
+  <h1> 제목입니다 </h1>
+
+  <a href="{% url 'movie:new'%}"> 작성 버튼</a>
+
+  <table>
+    <tr>
+      <th> 리뷰번호 </th>
+      <th> 리뷰 제목 </th>
+      <th> 작성 시간 </th>
+    </tr>
+
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+
+</body>
+{% endblock%}
