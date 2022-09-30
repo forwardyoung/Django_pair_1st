@@ -7,4 +7,7 @@ def index(request):
     return render(request, 'movie/index.html')
 
 def new(request):
-    return render(request, 'movie/new')
+    return render(request, 'movie/new.html')
+
+def edit(request):
+    return render(request, 'movie/edit.html')
