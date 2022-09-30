@@ -1,8 +1,8 @@
 {% extends 'base.html' %} {% block content %}
 
 <form action="{% url 'movie:create' %}">
-  <div class="input-group input-group-lg">
-    <span class="input-group-text" id="inputGroup-sizing-lg">제목</span>
+  <span class="input-group-text" id="inputGroup-sizing-lg">제목</span>
+  <div class="input-group input-group-lg mb-3">
     <input
       maxlength="80"
       type="text"
@@ -13,8 +13,8 @@
     />
   </div>
 
+  <span class="input-group-text" id="inputGroup-sizing-lg">내용</span>
   <div class="input-group input-group-lg">
-    <span class="input-group-text" id="inputGroup-sizing-lg">내용</span>
     <input
       type="text"
       name="content"
@@ -24,7 +24,9 @@
     />
   </div>
 
-  <input class="btn btn-outline-danger" type="submit" value="리뷰 쓰기" />
+  <div style="text-align:right">
+    <input style="margin-top:2rem;" class="btn btn-outline-danger" type="submit" value="리뷰 쓰기" />
+  </div>
 </form>
 
 {% endblock %}

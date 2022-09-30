@@ -1,11 +1,11 @@
 {% extends 'base.html' %} {% block content %}
 
 <body>
-  <h1 style="text-align: center; margin-bottom: 5rem">Cha & Moon Review</h1>
+  <div style="text-align: right">
+    <a href="{% url 'movie:new'%}" class="btn btn-outline-danger"> 작성 버튼</a>
+  </div>
 
-  <a href="{% url 'movie:new'%}" class="btn btn-outline-danger"> 작성 버튼</a>
-
-  <table>
+  <table class="table">
     <tr>
       <th>리뷰번호</th>
       <th>리뷰 제목</th>
@@ -20,10 +20,13 @@
           href="{% url 'movie:detail' r.pk %}"
           style="text-decoration: none; color: black"
         >
-          {{ r.title }}
+          {% if r.title == "" %}
+          <!-- 제목이 ''면 -->
+          제목 없음 {% else %} {{ r.title }} {% endif %}
         </a>
       </td>
-      <td>{{ r.created_at }}</td>
+      <td>{{ r.created_at.isoformat }}</td>
+      <!-- isoformat : yyyy-mm-dd로 -->
     </tr>
     {% endfor %}
   </table>

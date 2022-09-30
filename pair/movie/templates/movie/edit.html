@@ -1,15 +1,35 @@
 {% extends 'base.html' %} {% block content %}
 
 <form action="{% url 'movie:update' pk.pk %}">
-  제목<input
-    type="text"
-    maxlength="80"
-    name="edited_title"
-    id=""
-    value="{{ pk.title }}"
-  />
-  내용<input type="text" name="edited_content" id="" value="{{ pk.content }}" />
-  <input type="submit" value="리뷰 수정" />
+
+  <span class="input-group-text" id="inputGroup-sizing-lg">제목</span>
+  <div class="input-group input-group-lg mb-3">
+    <input
+      maxlength="80"
+      type="text"
+      class="form-control"
+      aria-label="Sizing example input"
+      aria-describedby="inputGroup-sizing-lg"
+      name="edited_title"
+      id=""
+      value="{{ pk.title }}"
+    />
+  </div>
+
+  <span class="input-group-text" id="inputGroup-sizing-lg">내용</span>
+  <div class="input-group input-group-lg">
+    <input
+      type="text"
+      class="form-control"
+      aria-label="Sizing example input"
+      aria-describedby="inputGroup-sizing-lg"
+      name="edited_content" id="" value="{{ pk.content }}"
+    />
+  </div>
+
+  <div style="text-align:right">
+    <input style="margin-top:2rem;" class="btn btn-outline-danger" type="submit" value="리뷰 수정" />
+  </div>
 </form>
 
 {% endblock %}
