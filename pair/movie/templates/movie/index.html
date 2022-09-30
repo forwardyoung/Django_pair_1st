@@ -15,7 +15,9 @@
     {% for r in review %}
     <tr>
       <td>{{ r.pk }}</td>
-      <td>{{ r.title }}</td>
+      <td>
+        <a href="{% url 'movie:detail' r.pk %}">{{ r.title }} </a>
+      </td>
       <td>{{ r.created_at }}</td>
     </tr>
     {% endfor %}

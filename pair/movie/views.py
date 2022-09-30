@@ -16,8 +16,30 @@ def index(request):
 def new(request):
     return render(request, 'movie/new.html')
 
-def edit(request):
-    return render(request, 'movie/edit.html')
+def detail(request, pk):
+    pk = Review.objects.get(pk = pk)
+
+    context = {
+        'pk': pk,
+    }
+    return render(request, 'movie/detail.html', context)
+
+def edit(request, pk):
+    e = Review.objects.get(pk = pk)
+
+    edited_title = request.GET.get("edited_title")
+    edited_content = request.GET.get("edtied_content")
+
+    e.title = edited_title
+    e.content = edited_content
+
+    context = {
+        'pk': pk,
+    }
+
+    e.save()
+    
+    return render(request, 'movie/edit.html', context)
 
 def create(request):
     title = request.GET.get("title")

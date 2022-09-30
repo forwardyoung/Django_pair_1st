@@ -9,6 +9,7 @@ app_name = "movie"
 urlpatterns = [
     path('', views.index, name='index'),
     path('new/', views.new, name='new'),
-    path('edit/', views.edit, name='edit'),
-    path('create/', views.create, name='create')
+    path('detail/<int:pk>', views.detail, name='detail'),
+    path('edit/<int:pk>', views.edit, name='edit'),
+    path('create/', views.create, name='create'),
 ]
