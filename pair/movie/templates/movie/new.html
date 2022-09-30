@@ -1,11 +1,8 @@
 {% extends 'base.html' %} {% block content %}
 
-<form action="{% url 'movie:index' %}">
-  제목<input type="text" maxlength="80" name="" id="" /> 내용<input
-    type="text"
-    name=""
-    id=""
-  />
+<form action="{% url 'movie:create' %}">
+  제목<input type="text" maxlength="80" name="title" id="" />
+  내용<input type="text" name="content" id=""/>
   <input type="submit" value="리뷰 쓰기" />
 </form>
 
