@@ -25,20 +25,11 @@ def detail(request, pk):
     return render(request, 'movie/detail.html', context)
 
 def edit(request, pk):
-    e = Review.objects.get(pk = pk)
-
-    edited_title = request.GET.get("edited_title")
-    edited_content = request.GET.get("edtied_content")
-
-    e.title = edited_title
-    e.content = edited_content
+    pk = Review.objects.get(pk = pk)
 
     context = {
         'pk': pk,
     }
-
-    e.save()
-    
     return render(request, 'movie/edit.html', context)
 
 def create(request):
@@ -52,3 +43,24 @@ def create(request):
     # context를 create한 후 return할 때 인자로 불러와도 되긴 하나 redirect로 해보자
     return redirect("movie:index")  # runserver하면 루트 주소로 뜬다.
     # 주소창에 naver를 navet로 입력해도 naver로 연결하는 역할
+
+def update(request, pk):
+  
+    e = Review.objects.get(pk = pk)
+
+    edited_title = request.GET.get("edited_title")
+    edited_content = request.GET.get("edited_content")
+
+    e.title = edited_title
+    e.content = edited_content
+
+  # 데이터를 수정한 것을 반영(save)
+    e.save()
+
+  # 데이터의 디테일 페이지로 리다이렉트
+    return redirect('movie:detail', e.pk)
+
+def delete(request, pk):
+    Review.objects.get(pk = pk).delete()
+
+    return redirect('movie:index')

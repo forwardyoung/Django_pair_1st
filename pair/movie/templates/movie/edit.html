@@ -1,7 +1,13 @@
 {% extends 'base.html' %} {% block content %}
 
-<form action="{% url 'movie:index'%}">
-  제목<input type="text" maxlength="80" name="edited_title" id="" value="{{ pk.title }}" />
+<form action="{% url 'movie:update' pk.pk %}">
+  제목<input
+    type="text"
+    maxlength="80"
+    name="edited_title"
+    id=""
+    value="{{ pk.title }}"
+  />
   내용<input type="text" name="edited_content" id="" value="{{ pk.content }}" />
   <input type="submit" value="리뷰 수정" />
 </form>
